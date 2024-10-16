@@ -44,11 +44,11 @@ const Home = () => {
 
     const getProducts = async (keyword = '', page=1, price,  category,) => {
 
-        let link = `http://localhost:4001/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        let link = `${import.meta.env.VITE_API}/products?page=${page}&keyword=${keyword}&price[lte]=${price[1]}&price[gte]=${price[0]}`
         // link = `http://localhost:4001/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${price[1]}&price[gte]=${price[0]}`
 
         if (category) {
-            link = `http://localhost:4001/api/v1/products?keyword=${keyword}&page=${page}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}`
+            link = `${import.meta.env.VITE_API}/products?keyword=${keyword}&page=${page}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}`
         }
         let res = await axios.get(link)
         console.log(res)

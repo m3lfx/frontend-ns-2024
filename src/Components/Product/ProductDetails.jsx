@@ -36,7 +36,7 @@ const ProductDetails = ({ cartItems, addItemToCart }) => {
         setQuantity(qty)
     }
     const productDetails = async (id) => {
-        let link = `http://localhost:4001/api/v1/product/${id}`
+        let link = `${import.meta.env.VITE_API}/product/${id}`
         try {
             let res = await axios.get(link)
             setProduct(res.data.product)
